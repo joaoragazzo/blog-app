@@ -28,7 +28,7 @@ public class UserServiceTest {
     @Test
     @DisplayName("findById > When the id is null > Throw an exception")
     void findByIdWhenTheIdIsNullThrowAnException() {
-        assertThrows(IllegalAccessError.class,
+        assertThrows(IllegalArgumentException.class,
                 () -> service.findById(null)
         );
     }
@@ -48,7 +48,7 @@ public class UserServiceTest {
         assertAll(
                 () -> assertEquals(1, response.getId()),
                 () -> assertEquals("Joao", response.getName()),
-                () -> assertEquals("joaoragazzo", response.getName())
+                () -> assertEquals("joaoragazzo", response.getUsername())
         );
     }
 
