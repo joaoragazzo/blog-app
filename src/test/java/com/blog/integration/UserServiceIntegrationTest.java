@@ -20,7 +20,7 @@ public class UserServiceIntegrationTest {
     @Test
     @DisplayName("findById > When the id is null > Throw an exception")
     void findByIdWhenTheIdIsNullThrowAnException() {
-        Assertions.assertThrows(IllegalAccessError.class,
+        Assertions.assertThrows(IllegalArgumentException.class,
                 () -> service.findById(null));
     }
 
