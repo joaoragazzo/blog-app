@@ -12,9 +12,8 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="post")
-public class Post implements Serializable
-{
+@Table(name = "post")
+public class Post implements Serializable {
     @Id
     private Integer id;
 

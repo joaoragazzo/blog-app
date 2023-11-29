@@ -12,8 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @SpringBootTest
-public class UserServiceIntegrationTest
-{
+public class UserServiceIntegrationTest {
 
     @Autowired
     private UserService service;
@@ -43,8 +42,8 @@ public class UserServiceIntegrationTest
     @Test
     @DisplayName("findById > When the id is not null > When no user is found > Throw an exception")
     void findByIdWhenTheIdIsNotNullWhenNoUserIsFoundThrowAnException() {
-       Assertions.assertThrows(UserNotFoundException.class,
-               () -> service.findById(11));
+        Assertions.assertThrows(UserNotFoundException.class,
+                () -> service.findById(11));
     }
 
 }

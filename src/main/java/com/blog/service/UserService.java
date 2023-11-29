@@ -12,17 +12,14 @@ import java.util.Objects;
 
 @Service
 @AllArgsConstructor
-public class UserService
-{
+public class UserService {
     private final UserRepository repository;
 
-    public List<User> getAllUsers()
-    {
+    public List<User> getAllUsers() {
         return repository.findAll();
     }
 
-    public User findById(Integer id)
-    {
+    public User findById(Integer id) {
         if (Objects.isNull(id)) {
             throw new IllegalArgumentException("Id is null when fetching an user");
         }
@@ -34,10 +31,9 @@ public class UserService
         );
     }
 
-    public User add(User user)
-    {
+    public User add(User user) {
         if (Objects.isNull(user) || Objects.isNull(user.getName())
-         || Objects.isNull(user.getUsername()) || Objects.isNull(user.getEmail())) {
+                || Objects.isNull(user.getUsername()) || Objects.isNull(user.getEmail())) {
             throw new InvalidUserException();
         }
 

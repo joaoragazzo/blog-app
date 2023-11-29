@@ -16,20 +16,17 @@ import java.util.List;
 @Log4j2
 @Controller
 @AllArgsConstructor
-public class BlogController
-{
+public class BlogController {
 
     private final UserService service;
 
     @GetMapping("/")
-    public String getHome()
-    {
+    public String getHome() {
         return "home";
     }
 
     @GetMapping("/users")
-    public String user(Model model)
-    {
+    public String user(Model model) {
         List<User> users = service.getAllUsers();
         model.addAttribute("users", users);
 
@@ -37,14 +34,12 @@ public class BlogController
     }
 
     @GetMapping("/user")
-    public String user(User user)
-    {
+    public String user(User user) {
         return "newuser";
     }
 
     @PostMapping("/user")
-    public String newUser(@ModelAttribute("user") User user)
-    {
+    public String newUser(@ModelAttribute("user") User user) {
         log.info("Entrou no cadastro de usuário.");
         service.add(user);
         return "newuser";
