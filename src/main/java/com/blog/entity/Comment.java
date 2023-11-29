@@ -1,34 +1,31 @@
 package com.blog.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "post")
-public class Post implements Serializable {
+@NoArgsConstructor
+@Builder
+@Table(name = "comment")
+public class Comment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    private String name;
 
-    private String title;
+    private String email;
 
     private String body;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @OneToMany
-    private List<Comment> comments;
+    @JoinColumn(name = "post_id")
+    private Post post;
 
 }
